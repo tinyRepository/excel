@@ -1,0 +1,37 @@
+{
+  "name": "excel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tinyRepository/excel.git",
+  "author": "Andrey <andrey.solovyov>",
+  "license": "MIT",
+  "private": false,
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --no-open",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.0.1",
+    "eslint": "^8.28.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-loader": "^4.0.2",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "sass": "^1.56.1",
+    "sass-loader": "^10.1.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3"
+  }
+}
