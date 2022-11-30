@@ -5,6 +5,8 @@
     "browser": false,
     "node": true
   },
-  "rules": {},
+  "rules": {
+    "quotes": [2, "double"]
+  },
   "extends": ["eslint:recommended", "google"]
 }

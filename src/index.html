@@ -4,9 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
     <title>Excel</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="db">
+        <div class="db__header">
+          <h1 class="title">Таблицы</h1>
+        </div>
+
+        <div class="db__new">
+          <div class="db__view">
+            <h2 class="db__subtitle">Создать таблицу</h2>
+            <a href="#" class="db__create">
+              <img src="../assets/plus.png" alt="new table" />
+            </a>
+          </div>
+        </div>
+
+        <div class="db__table db__view">
+          <div class="db__list-header">
+            <span>Таблицы по названию</span>
+            <span>Дата открытия</span>
+          </div>
+
+          <ul class="db__list">
+            <li class="db__record">
+              <a href="#">
+                <img src="../assets/docs.png" alt="doc" />
+                <span>Таблица номер 1</span>
+              </a>
+              <span class="db__record-date">12 июн. 2020 г.</span>
+            </li>
+
+            <li class="db__record">
+              <a href="#">
+                <img src="../assets/docs.png" alt="doc" />
+                <span>Таблица номер 2</span>
+              </a>
+              <span class="db__record-date">12 авг. 2020 г.</span>
+            </li>
+
+            <li class="db__record">
+              <a href="#">
+                <img src="../assets/docs.png" alt="doc" />
+                <span>Таблица номер 3</span>
+              </a>
+              <span class="db__record-date">12 сен. 2021 г.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
