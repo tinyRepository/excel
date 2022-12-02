@@ -36,7 +36,5 @@ export class Toolbar extends ExcelComponent {
   </div>`;
   }
 
-  onClick() {
-    console.log('Click', event.target);
-  }
+  onClick() {}
 }

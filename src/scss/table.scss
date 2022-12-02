@@ -56,11 +56,17 @@
     color: $black3;
     white-space: nowrap;
     outline: none;
+    cursor: default;
 
     &.selected {
       border: none;
-      outline: 1px solid $blue2;
+      outline: 2px solid $blue2;
       z-index: 2;
+      box-shadow: 0 1px 15px 3px rgba(60, 64, 67, 0.15);
+
+      &[contenteditable=''] {
+        cursor: text;
+      }
     }
   }
 
