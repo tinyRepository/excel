@@ -9,6 +9,7 @@
     "quotes": [2, "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
     "object-curly-spacing": ["error", "never"],
     "max-len": ["error", {"code": 100}],
+    "operator-linebreak": "off",
     "indent": "off",
     "require-jsdoc": 0,
     "no-undef": 0
