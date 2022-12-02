@@ -57,10 +57,6 @@ module.exports = {
           to: path.resolve(__dirname, 'dist'),
         },
         {
-          from: path.resolve(__dirname, 'src/assets'),
-          to: path.resolve(__dirname, 'dist/assets'),
-        },
-        {
           from: path.resolve(__dirname, 'src/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
@@ -75,7 +71,6 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     hot: isDev,
     port: 8080,
-    open: true,
   },
   devtool: isDev ? 'source-map' : false,
   module: {
