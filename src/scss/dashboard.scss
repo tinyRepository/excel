@@ -89,7 +89,10 @@
     padding: 13px 20px 13px 20px;
     margin-top: -1px;
     border-bottom: 1px solid $grey6;
-    font-family: "Rubik", sans-serif;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none;
+    color: $black2;
+    font-size: 14px;
 
     img {
       width: 32px;
@@ -109,16 +112,9 @@
       border-color: transparent;
     }
 
-    a {
+    & > p {
       display: flex;
       align-items: center;
-      text-decoration: none;
-      color: $black2;
-      font-size: 14px;
-
-      & > span {
-        margin-left: 20px;
-      }
     }
   }
 
@@ -128,5 +124,12 @@
     text-align: left;
     margin-right: -5px;
     letter-spacing: 0.2px;
+  }
+
+  &__empty-text {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 30px;
+    user-select: none;
   }
 }
