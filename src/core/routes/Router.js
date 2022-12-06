@@ -29,7 +29,9 @@ export class Router {
 
     this.$placeholder.clear();
 
-    const Page = ActiveRoute.path.includes('excel') ? this.routes.excel : this.routes.dashboard;
+    const Page = ActiveRoute.path.includes('excel')
+      ? this.routes.excel
+      : this.routes.dashboard;
 
     this.page = new Page(ActiveRoute.param);
 

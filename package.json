@@ -9,7 +9,7 @@
   "browserslist": "> 0.25%, not dead",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack --mode production"
+    "build": "cross-env NODE_ENV=production yarn prettier --write . && webpack --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -27,6 +27,7 @@
     "eslint-loader": "^4.0.2",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "2.8.0",
     "sass": "^1.56.1",
     "sass-loader": "^10.1.0",
     "webpack": "^4.41.6",

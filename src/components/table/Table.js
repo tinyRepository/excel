@@ -85,7 +85,14 @@ export class Table extends ExcelComponent {
   }
 
   onKeydown(event) {
-    const keys = ['Enter', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowDown', 'ArrowUp'];
+    const keys = [
+      'Enter',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowDown',
+      'ArrowUp',
+    ];
 
     const {key} = event;
 

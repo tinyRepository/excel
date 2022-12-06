@@ -60,7 +60,9 @@ function toColumn({col, index, width}) {
 }
 
 function createRow(index, content, state = {}) {
-  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : '';
+  const resize = index
+    ? '<div class="row-resize" data-resize="row"></div>'
+    : '';
   const height = getHeight(state, index);
   return `
     <div 
@@ -106,7 +108,10 @@ export function createTable(rowsCount = MAX_ROW_COUNTS, state = {}) {
   rows.push(createRow(null, cols));
 
   for (let row = 0; row < rowsCount; row++) {
-    const cells = new Array(MAX_COLS_COUNTS).fill('').map(toCell(state, row)).join('');
+    const cells = new Array(MAX_COLS_COUNTS)
+      .fill('')
+      .map(toCell(state, row))
+      .join('');
 
     rows.push(createRow(row + 1, cells, state.rowState));
   }

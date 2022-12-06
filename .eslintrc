@@ -6,7 +6,11 @@
     "node": true
   },
   "rules": {
-    "quotes": [2, "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
+    "quotes": [
+      2,
+      "single",
+      {"avoidEscape": true, "allowTemplateLiterals": true}
+    ],
     "object-curly-spacing": ["error", "never"],
     "max-len": ["error", {"code": 100}],
     "operator-linebreak": "off",
