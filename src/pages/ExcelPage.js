@@ -1,19 +1,19 @@
-import {Page} from '@core/Page';
-import {createStore} from '@core/createStore';
-import {rootReducer} from '@/store/rootReducer';
-import {debounce, storage} from '@core/utils';
-import {Excel} from '@/components/excel/Excel';
-import {Header} from '@/components/header/Header';
-import {Toolbar} from '@/components/toolbar/Toolbar';
-import {Formula} from '@/components/formula/Formula';
-import {Table} from '@/components/table/Table';
-import {normalizeInitialState} from '@/store/initialState';
+import Page from '@core/Page';
+import createStore from '@core/createStore';
+import rootReducer from '@/store/rootReducer';
+import { debounce, storage } from '@core/utils';
+import Excel from '@/components/excel/Excel';
+import Header from '@/components/header/Header';
+import Toolbar from '@/components/toolbar/Toolbar';
+import Formula from '@/components/formula/Formula';
+import Table from '@/components/table/Table';
+import normalizeInitialState from '@/store/initialState';
 
 function storageName(param) {
-  return 'excel:' + param;
+  return `excel:${param}`;
 }
 
-export class ExcelPage extends Page {
+export default class ExcelPage extends Page {
   getRoot() {
     const params = this.params ? this.params : Date.now().toString();
 
@@ -21,8 +21,8 @@ export class ExcelPage extends Page {
     const initialState = normalizeInitialState(state);
     const store = createStore(rootReducer, initialState);
 
-    const stateListener = debounce((state) => {
-      storage(storageName(params), state);
+    const stateListener = debounce((data) => {
+      storage(storageName(params), data);
     }, 300);
 
     store.subscribe(stateListener);

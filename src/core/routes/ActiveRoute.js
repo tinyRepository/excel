@@ -1,4 +1,4 @@
-export class ActiveRoute {
+export default class ActiveRoute {
   static get path() {
     return window.location.hash.slice(1);
   }

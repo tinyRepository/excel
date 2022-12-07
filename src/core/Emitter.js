@@ -1,4 +1,4 @@
-export class Emitter {
+export default class Emitter {
   constructor() {
     this.listeners = {};
   }
@@ -18,7 +18,7 @@ export class Emitter {
     this.listeners[event].push(fn);
     return () => {
       this.listeners[event] = this.listeners[event].filter(
-        (listener) => listener !== fn
+        (listener) => listener !== fn,
       );
     };
   }

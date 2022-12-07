@@ -6,18 +6,21 @@ export function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+/* eslint-disable no-param-reassign */
 export function range(start, end) {
   if (start > end) {
     [end, start] = [start, end];
   }
   return new Array(end - start + 1).fill('').map((_, index) => start + index);
 }
+/* eslint-enable no-param-reassign */
 
 export function storage(key, data = null) {
   if (!data) {
     return JSON.parse(localStorage.getItem(key));
   }
   localStorage.setItem(key, JSON.stringify(data));
+  return false;
 }
 
 export function isEqual(a, b) {
@@ -27,20 +30,17 @@ export function isEqual(a, b) {
   return a === b;
 }
 
-/* eslint-disable space-before-function-paren*/
 export function debounce(fn, wait) {
   let timeout;
   return function (...args) {
     const later = () => {
       clearTimeout(timeout);
-      // eslint-disable-next-line
       fn.apply(this, args);
     };
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
 }
-/* eslint-enable space-before-function-paren*/
 
 export function clone(obj) {
   return JSON.parse(JSON.stringify(obj));

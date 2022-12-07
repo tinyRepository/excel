@@ -1,7 +1,8 @@
-import {$} from '@core/dom';
+import $ from '@core/dom';
+
 const RESIZER_OFFSET = 2.5;
 
-export function resizeHandler($root, event) {
+export default function resizeHandler($root, event) {
   return new Promise((resolve) => {
     const $resizer = $(event.target);
     const $parent = $resizer.closest('[data-type="resizable"]');
@@ -21,14 +22,14 @@ export function resizeHandler($root, event) {
         value = coords.width + delta;
 
         if (value > 0) {
-          $resizer.css({right: `${-delta - RESIZER_OFFSET}px`});
+          $resizer.css({ right: `${-delta - RESIZER_OFFSET}px` });
         }
       } else {
         const delta = e.pageY - coords.bottom;
         value = coords.height + delta;
 
         if (value > 0) {
-          $resizer.css({bottom: `${-delta - RESIZER_OFFSET}px`});
+          $resizer.css({ bottom: `${-delta - RESIZER_OFFSET}px` });
         }
       }
     };
@@ -38,10 +39,10 @@ export function resizeHandler($root, event) {
       document.onmouseup = null;
 
       if (type === 'col') {
-        $parent.css({width: `${value}px`});
-        $root
-          .findAll(`[data-col="${$parent.data.col}"]`)
-          .forEach((el) => (el.style.width = `${value}px`));
+        $parent.css({ width: `${value}px` });
+        $root.findAll(`[data-col="${$parent.data.col}"]`).forEach((el) => {
+          el.style.width = `${value}px`;
+        });
 
         $resizer.css({
           opacity: 0,
@@ -49,7 +50,7 @@ export function resizeHandler($root, event) {
           right: `-${RESIZER_OFFSET}px`,
         });
       } else {
-        $parent.css({height: `${value}px`});
+        $parent.css({ height: `${value}px` });
 
         $resizer.css({
           opacity: 0,

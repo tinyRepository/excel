@@ -1,6 +1,6 @@
-import {toInlineStyles} from '@core/utils';
-import {defaultStyles} from '@/constants';
-import {parse} from '@/core/parse';
+import { toInlineStyles } from '@core/utils';
+import { defaultStyles } from '@/constants';
+import parse from '@/core/parse';
 
 const CODES = {
   A: 65,
@@ -14,11 +14,11 @@ const DEFAULT_WIDTH = 120;
 const DEFAULT_HEIGHT = 24;
 
 function getWidth(state, index) {
-  return (state[index] || DEFAULT_WIDTH) + 'px';
+  return `${state[index] || DEFAULT_WIDTH}px`;
 }
 
 function getHeight(state, index) {
-  return (state[index] || DEFAULT_HEIGHT) + 'px';
+  return `${state[index] || DEFAULT_HEIGHT}px`;
 }
 
 function toCell(state, row) {
@@ -45,7 +45,7 @@ function toCell(state, row) {
   };
 }
 
-function toColumn({col, index, width}) {
+function toColumn({ col, index, width }) {
   return `
     <div 
       class="column" 
@@ -72,7 +72,7 @@ function createRow(index, content, state = {}) {
       style="height: ${height}"
     >
       <div class="row-info">
-        ${index ? index : ''}
+        ${index || ''}
         ${resize}
       </div>
       <div class="row-data">${content}</div>

@@ -1,5 +1,5 @@
-import {range} from '@core/utils';
-import {MAX_ROW_COUNTS, MAX_COLS_COUNTS} from './table.template';
+import { range } from '@core/utils';
+import { MAX_ROW_COUNTS, MAX_COLS_COUNTS } from './table.template';
 
 export function shouldResize(event) {
   return event.target.dataset.resize;
@@ -21,20 +21,19 @@ export function matrix($target, $current) {
   }, []);
 }
 
-/* eslint-disable indent*/
-export function nextSelector(key, {col, row}) {
+export function nextSelector(key, { col, row }) {
   const MIN_VALUE = 0;
   switch (key) {
     case 'Enter':
     case 'ArrowDown':
       if (row < MAX_ROW_COUNTS - 1) {
-        row++;
+        row += 1;
       }
       break;
     case 'Tab':
     case 'ArrowRight':
       if (col < MAX_COLS_COUNTS - 1) {
-        col++;
+        col += 1;
       }
       break;
     case 'ArrowLeft':
@@ -47,4 +46,3 @@ export function nextSelector(key, {col, row}) {
 
   return `[data-id="${row}:${col}"]`;
 }
-/* eslint-enable indent*/

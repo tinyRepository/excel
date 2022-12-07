@@ -1,4 +1,4 @@
-import {storage} from '@core/utils';
+import { storage } from '@core/utils';
 
 function toHTML(key) {
   const model = storage(key);
@@ -25,8 +25,16 @@ function toHTML(key) {
   `;
 }
 
+function sortKeys(keys) {
+  keys.sort((a, b) => {
+    const itemA = parseInt(a.split(':')[1], 10);
+    const itemB = parseInt(b.split(':')[1], 10);
+    return itemB - itemA;
+  });
+}
+
+/* eslint-disable no-continue */
 function getAllKeys() {
-  console.log(1);
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
@@ -39,16 +47,9 @@ function getAllKeys() {
   sortKeys(keys);
   return keys;
 }
+/* eslint-enable no-continue */
 
-function sortKeys(keys) {
-  keys.sort((a, b) => {
-    const itemA = parseInt(a.split(':')[1]);
-    const itemB = parseInt(b.split(':')[1]);
-    return itemB - itemA;
-  });
-}
-
-export function createRecordsTable() {
+export default function createRecordsTable() {
   const keys = getAllKeys();
   sortKeys(keys);
 

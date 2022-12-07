@@ -1,4 +1,4 @@
-export class TableSelection {
+export default class TableSelection {
   static className = 'selected';
 
   constructor() {

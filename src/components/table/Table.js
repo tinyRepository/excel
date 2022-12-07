@@ -1,14 +1,14 @@
-import {$} from '@core/dom';
-import {ExcelComponent} from '@core/ExcelComponent';
-import {createTable} from './table.template';
-import {resizeHandler} from './table.resize';
-import {isCell, matrix, nextSelector, shouldResize} from './table.functions';
-import {TableSelection} from '@/components/table/TableSelection';
-import {defaultStyles} from '@/constants';
-import {parse} from '@core/parse';
+import $ from '@core/dom';
+import ExcelComponent from '@core/ExcelComponent';
+import TableSelection from '@/components/table/TableSelection';
+import { defaultStyles } from '@/constants';
+import parse from '@core/parse';
 import * as actions from '@/store/actions';
+import resizeHandler from './table.resize';
+import { createTable } from './table.template';
+import { isCell, matrix, nextSelector, shouldResize } from './table.functions';
 
-export class Table extends ExcelComponent {
+export default class Table extends ExcelComponent {
   static className = 'excel__table';
 
   constructor($root, options) {
@@ -47,7 +47,7 @@ export class Table extends ExcelComponent {
         actions.applyStyle({
           value,
           ids: this.selection.selectedIds,
-        })
+        }),
       );
     });
   }
@@ -59,6 +59,7 @@ export class Table extends ExcelComponent {
     this.$dispatch(actions.changeStyles(styles));
   }
 
+  /* eslint-disable */
   onMousedown(event) {
     if (shouldResize(event)) {
       this.resizeTable(event);
@@ -66,7 +67,7 @@ export class Table extends ExcelComponent {
       const $target = $(event.target);
       if (event.shiftKey) {
         const $cells = matrix($target, this.selection.current).map((id) =>
-          this.$root.find(`[data-id="${id}"]`)
+          this.$root.find(`[data-id="${id}"]`),
         );
         this.selection.selectGroup($cells);
       } else {
@@ -74,12 +75,14 @@ export class Table extends ExcelComponent {
       }
     }
   }
+  /* eslint-enable */
 
   async resizeTable(event) {
     try {
       const data = await resizeHandler(this.$root, event);
       this.$dispatch(actions.tableResize(data));
     } catch (e) {
+      // eslint-disable-next-line
       console.warn('Resize error', e.message);
     }
   }
@@ -94,7 +97,7 @@ export class Table extends ExcelComponent {
       'ArrowUp',
     ];
 
-    const {key} = event;
+    const { key } = event;
 
     if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault();
@@ -109,7 +112,7 @@ export class Table extends ExcelComponent {
       actions.changeText({
         id: this.selection.current.id(),
         value,
-      })
+      }),
     );
   }
 

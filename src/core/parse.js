@@ -1,7 +1,9 @@
-export function parse(value = '') {
+import { evaluate } from 'decimal-eval';
+
+export default function parse(value = '') {
   if (value.startsWith('=')) {
     try {
-      return eval(value.slice(1));
+      return evaluate(value.slice(1));
     } catch (e) {
       return value;
     }

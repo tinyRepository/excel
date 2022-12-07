@@ -120,7 +120,7 @@ class Dom {
   }
 }
 
-export function $(selector) {
+export default function $(selector) {
   return new Dom(selector);
 }
 

@@ -1,7 +1,7 @@
-import {$} from '@core/dom';
-import {ExcelComponent} from '@core/ExcelComponent';
+import $ from '@core/dom';
+import ExcelComponent from '@core/ExcelComponent';
 
-export class Formula extends ExcelComponent {
+export default class Formula extends ExcelComponent {
   static className = 'excel__formula';
 
   constructor($root, options) {
@@ -23,7 +23,7 @@ export class Formula extends ExcelComponent {
     });
   }
 
-  storeChanged({currentText}) {
+  storeChanged({ currentText }) {
     this.$formula.text(currentText);
   }
 

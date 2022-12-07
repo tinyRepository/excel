@@ -1,9 +1,9 @@
-import {$} from '@/core/dom';
-import {Emitter} from '@core/Emitter';
-import {StoreSubscriber} from '@/core/StoreSubscriber';
-import {preventDefault} from '@/core/utils';
+import $ from '@/core/dom';
+import Emitter from '@core/Emitter';
+import StoreSubscriber from '@/core/StoreSubscriber';
+import { preventDefault } from '@/core/utils';
 
-export class Excel {
+export default class Excel {
   constructor(options) {
     this.components = options.components || [];
     this.store = options.store;
@@ -14,14 +14,14 @@ export class Excel {
   getRoot() {
     const $root = $.create('div', 'excel');
 
-    const comonentOptions = {
+    const componentOptions = {
       emitter: this.emitter,
       store: this.store,
     };
 
     this.components = this.components.map((Component) => {
       const $el = $.create('div', Component.className);
-      const component = new Component($el, comonentOptions);
+      const component = new Component($el, componentOptions);
       $el.html(component.toHTML());
       $root.append($el);
       return component;

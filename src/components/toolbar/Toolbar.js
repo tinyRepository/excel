@@ -1,9 +1,9 @@
-import {$} from '@core/dom';
-import {defaultStyles} from '@/constants';
-import {ExcelStateComponent} from '@/core/ExcelStateComponent';
-import {createToolbar} from '@/components/toolbar/toolbar.template';
+import $ from '@core/dom';
+import { defaultStyles } from '@/constants';
+import ExcelStateComponent from '@/core/ExcelStateComponent';
+import createToolbar from '@/components/toolbar/toolbar.template';
 
-export class Toolbar extends ExcelStateComponent {
+export default class Toolbar extends ExcelStateComponent {
   static className = 'excel__toolbar';
 
   constructor($root, options) {

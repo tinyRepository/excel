@@ -1,7 +1,7 @@
-import {$} from '@core/dom';
-import {ActiveRoute} from '@core/routes/ActiveRoute';
+import $ from '@core/dom';
+import ActiveRoute from '@core/routes/ActiveRoute';
 
-export class Router {
+export default class Router {
   constructor(selector, routes) {
     if (!selector) {
       throw new Error('Selector is not provided in Router');
