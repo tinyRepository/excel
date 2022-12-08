@@ -1,6 +1,6 @@
 import $ from '@core/dom';
 import Page from '@core/Page';
-import createRecordsTable from './dashboard.functions';
+import createRecordsTable from '@/shared/dashboard.functions';
 
 export default class DashboardPage extends Page {
   getRoot() {
